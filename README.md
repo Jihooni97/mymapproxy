@@ -7,7 +7,7 @@ Google 위성 타일을 캐싱해 폐쇄망 환경에서 제공한다.
 
 | 항목 | 내용 |
 |------|------|
-| 소스 | Google Satellite |
+| 소스 | OpenStreetMap |
 | 캐시 지역 | 두바이-푸자이라 (54.8~56.6°E, 24.8~25.6°N) |
 | 줌 레벨 | z6 ~ z16 |
 | 타일 수 | 70,979 |
@@ -31,7 +31,7 @@ python3 -m venv .venv
 ## HMI 연결 URL
 
 ```
-http://localhost:8080/wmts/google/webmercator/{z}/{x}/{y}.png
+http://localhost:8080/wmts/osm/webmercator/{z}/{x}/{y}.png
 ```
 
 VM에서 접근 시 `localhost` 를 VM IP로 변경.
@@ -41,5 +41,5 @@ VM에서 접근 시 `localhost` 를 VM IP로 변경.
 `seed.yaml` 의 `bbox` 수정 후:
 
 ```bash
-.venv/bin/mapproxy-seed -f mapproxy.yaml -s seed.yaml --seed dubai_fujairah_seed -c 4
+.venv/bin/mapproxy-seed -f mapproxy.yaml -s seed.yaml --seed uae_seed -c 4
 ```

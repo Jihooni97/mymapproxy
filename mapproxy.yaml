@@ -8,26 +8,26 @@ services:
   tms:
 
 layers:
-  - name: google
-    title: Google Satellite
-    sources: [google_cache]
+  - name: osm
+    title: OpenStreetMap
+    sources: [osm_cache]
 
 caches:
-  google_cache:
+  osm_cache:
     grids: [webmercator]
-    sources: [google_source]
+    sources: [osm_source]
     cache:
       type: file
-      directory: ./cache_data/google
+      directory: ./cache_data/osm
 
 sources:
-  google_source:
+  osm_source:
     type: tile
-    url: https://mt1.google.com/vt/lyrs=s&x=%(x)s&y=%(y)s&z=%(z)s
+    url: https://tile.openstreetmap.org/%(tms_path)s.png
     grid: webmercator
     http:
       headers:
-        User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        User-Agent: MapProxy/mymapproxy
     on_error:
       other:
         response: transparent
