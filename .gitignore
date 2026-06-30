@@ -2,3 +2,4 @@ cache_data/
 .idea/
 *.md
 !WINDOWS_DEPLOY.md
+!README.md
